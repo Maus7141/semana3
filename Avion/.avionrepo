@@ -1,0 +1,16 @@
+package com.mauricio.avion.models;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Avion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String modelo;
+    private String matricula;
+    private int capacidad;
+    private String estado;
+
+    // Getters y Setters
+}
