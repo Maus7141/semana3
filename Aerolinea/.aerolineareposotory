@@ -1,0 +1,20 @@
+
+package com.mauricio.aerolinea.repository;
+
+import com.mauricio.aerolinea.models.Aerolinea;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AerolineaRepository extends JpaRepository<Aerolinea, Long> {}
+
+package com.mauricio.aerolinea.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
+
+@FeignClient(name = "aeropuerto-microservicio")
+public interface AeropuertoClient {
+
+	@GetMapping("/api/aeropuerto")
+	List<Object> obtenerAeropuertos();
+}
