@@ -1,0 +1,12 @@
+// controller/AerolineaController.java
+package com.mauricio.aerolinea.controller;
+
+import com.mauricio.aerolinea.dto.AerolineaDTO;
+import com.mauricio.aerolinea.service.IAerolineaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/aerolinea")
