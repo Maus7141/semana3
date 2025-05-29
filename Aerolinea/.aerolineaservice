@@ -1,0 +1,11 @@
+// service/IAerolineaService.java
+package com.mauricio.aerolinea.service;
+
+import com.mauricio.aerolinea.dto.AerolineaDTO;
+
+import java.util.List;
+
+public interface IAerolineaService {
+	List<AerolineaDTO> listar();
+	void guardar(AerolineaDTO dto);
+}
