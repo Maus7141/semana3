@@ -1,0 +1,10 @@
+package com.mauricio.aeropuerto;
+
+import org.springframework.boot.SpringApplication;
+@EnableEurekaClient
+@EnableFeignClients
+public class AeropuertoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(AeropuertoApplication.class, args);
+    }
+}
