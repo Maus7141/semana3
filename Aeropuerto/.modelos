@@ -1,0 +1,64 @@
+// Modelo
+// src/main/java/com/mauricio/aeropuerto/models/entities/Aeropuerto.java
+
+package com.mauricio.aeropuerto.models.entities;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+public class Aeropuerto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nombre;
+    private String codigo;
+    private Double latitud;
+    private Double longitud;
+    private String pais;
+    private String estatus;
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public Double getLatitud() {
+        return latitud;
+    }
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+    public Double getLongitud() {
+        return longitud;
+    }
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+    public String getPais() {
+        return pais;
+    }
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    public String getEstatus() {
+        return estatus;
+    }
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+}
