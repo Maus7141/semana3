@@ -1,0 +1,64 @@
+// DTO
+// src/main/java/com/mauricio/aeropuerto/dto/AeropuertoDTO.java
+
+package com.mauricio.aeropuerto.dto;
+
+import jakarta.validation.constraints.*;
+
+public class AeropuertoDTO {
+
+    @NotBlank
+    private String nombre;
+
+    @NotBlank
+    private String codigo;
+
+    @NotNull
+    private Double latitud;
+
+    @NotNull
+    private Double longitud;
+
+    @NotBlank
+    private String pais;
+
+    @NotBlank
+    private String estatus;
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public Double getLatitud() {
+        return latitud;
+    }
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+    public Double getLongitud() {
+        return longitud;
+    }
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+    public String getPais() {
+        return pais;
+    }
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    public String getEstatus() {
+        return estatus;
+    }
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+}
