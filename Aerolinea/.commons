@@ -1,0 +1,11 @@
+package com.mauricio.aerolinea;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+@SpringBootApplication
+@EnableEurekaClient
+@EnableFeignClients
+public class AerolineaMicroservicioApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(AerolineaMicroservicioApplication.class, args);
+	}
+}
