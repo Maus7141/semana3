@@ -1,0 +1,10 @@
+// Repository
+// src/main/java/com/mauricio/aeropuerto/repository/AeropuertoRepository.java
+
+package com.mauricio.aeropuerto.repository;
+
+import com.mauricio.aeropuerto.models.entities.Aeropuerto;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AeropuertoRepository extends JpaRepository<Aeropuerto, Long> {
+}
