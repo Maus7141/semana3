@@ -1,0 +1,31 @@
+package com.mauricio.vuelo.controller;
+
+import com.mauricio.vuelo.dto.VueloDTO;
+import com.mauricio.vuelo.models.Vuelo;
+import com.mauricio.vuelo.service.VueloService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/vuelos")
+public class VueloController {
+
+    private final VueloService service;
+
+    public VueloController(VueloService service) {
+        this.service = service;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Vuelo>> listar() {
+        return ResponseEntity.ok(service.listar());
+    }
+
+    @PostMapping
+    public ResponseEntity<Vuelo> guardar(@Valid @RequestBody VueloDTO dto) {
+        return ResponseEntity.ok(service.guardar(dto));
+    }
+}
