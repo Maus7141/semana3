@@ -1,0 +1,14 @@
+package com.mauricio.vuelo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@SpringBootApplication
+@EnableFeignClients
+public class VueloApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(VueloApplication.class, args);
+    }
+}
