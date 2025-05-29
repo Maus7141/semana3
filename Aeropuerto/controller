@@ -1,0 +1,34 @@
+// Controller
+// src/main/java/com/mauricio/aeropuerto/controller/AeropuertoController.java
+
+package com.mauricio.aeropuerto.controller;
+
+import com.mauricio.aeropuerto.dto.AeropuertoDTO;
+import com.mauricio.aeropuerto.models.entities.Aeropuerto;
+import com.mauricio.aeropuerto.service.AeropuertoService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/aeropuertos")
+public class AeropuertoController {
+
+    private final AeropuertoService service;
+
+    public AeropuertoController(AeropuertoService service) {
+        this.service = service;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Aeropuerto>> listar() {
+        return ResponseEntity.ok(service.listar());
+    }
+
+    @PostMapping
+    public ResponseEntity<Aeropuerto> guardar(@Valid @RequestBody AeropuertoDTO dto) {
+        return ResponseEntity.ok(service.guardar(dto));
+    }
+}
