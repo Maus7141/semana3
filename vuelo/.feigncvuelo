@@ -1,0 +1,13 @@
+package com.mauricio.vuelo.feign;
+
+import com.mauricio.vuelo.dto.AerolineaDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@FeignClient(name = "aerolinea-microservicio")
+public interface AerolineaFeignClient {
+
+    @GetMapping("/aerolinea/{id}")
+    AerolineaDTO obtenerAerolineaPorId(@PathVariable("id") Long id);
+}
