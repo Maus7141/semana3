@@ -1,0 +1,17 @@
+@RestController
+@RequestMapping("/api/aerolinea")
+public class AerolineaController {
+
+	@Autowired
+	private IAerolineaService service;
+
+	@GetMapping
+	public List<AerolineaDTO> listar() {
+		return service.listar();
+	}
+
+	@PostMapping
+	public void guardar(@RequestBody AerolineaDTO dto) {
+		service.guardar(dto);
+	}
+}
