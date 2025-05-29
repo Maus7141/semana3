@@ -1,0 +1,34 @@
+package com.mauricio.vuelo.service;
+
+import com.mauricio.vuelo.dto.VueloDTO;
+import com.mauricio.vuelo.models.Vuelo;
+import com.mauricio.vuelo.repository.VueloRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class VueloService {
+
+    private final VueloRepository repository;
+
+    public VueloService(VueloRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Vuelo> listar() {
+        return repository.findAll();
+    }
+
+    public Vuelo guardar(VueloDTO dto) {
+        Vuelo vuelo = new Vuelo();
+        vuelo.setCodigo(dto.getCodigo());
+        vuelo.setFechaSalida(dto.getFechaSalida());
+        vuelo.setFechaLlegada(dto.getFechaLlegada());
+        vuelo.setOrigen(dto.getOrigen());
+        vuelo.setDestino(dto.getDestino());
+        vuelo.setAvionId(dto.getAvionId());
+        vuelo.setAerolineaId(dto.getAerolineaId());
+        return repository.save(vuelo);
+    }
+}
