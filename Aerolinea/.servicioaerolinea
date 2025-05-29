@@ -1,0 +1,32 @@
+// service/AerolineaService.java
+package com.mauricio.aerolinea.service;
+
+import com.mauricio.aerolinea.dto.AerolineaDTO;
+import com.mauricio.aerolinea.models.Aerolinea;
+import com.mauricio.aerolinea.repository.AerolineaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class AerolineaService implements IAerolineaService {
+
+	@Autowired
+	private AerolineaRepository repository;
+
+	@Override
+	public List<AerolineaDTO> listar() {
+		return repository.findAll()
+				.stream()
+				.map(a -> new AerolineaDTO(a.getId(), a.getNombre(), a.getIata(), a.getEstatus(), a.getPais(), a.getFechaFundacion()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public void guardar(AerolineaDTO dto) {
+		Aerolinea aerolinea = new Aerolinea(null, dto.getNombre(), dto.getIata(), dto.getEstatus(), dto.getPais(), dto.getFechaFundacion());
+		repository.save(aerolinea);
+	}
+}
