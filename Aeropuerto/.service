@@ -1,0 +1,36 @@
+// Service
+// src/main/java/com/mauricio/aeropuerto/service/AeropuertoService.java
+
+package com.mauricio.aeropuerto.service;
+
+import com.mauricio.aeropuerto.dto.AeropuertoDTO;
+import com.mauricio.aeropuerto.models.entities.Aeropuerto;
+import com.mauricio.aeropuerto.repository.AeropuertoRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AeropuertoService {
+
+    private final AeropuertoRepository repository;
+
+    public AeropuertoService(AeropuertoRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Aeropuerto> listar() {
+        return repository.findAll();
+    }
+
+    public Aeropuerto guardar(AeropuertoDTO dto) {
+        Aeropuerto aeropuerto = new Aeropuerto();
+        aeropuerto.setNombre(dto.getNombre());
+        aeropuerto.setCodigo(dto.getCodigo());
+        aeropuerto.setLatitud(dto.getLatitud());
+        aeropuerto.setLongitud(dto.getLongitud());
+        aeropuerto.setPais(dto.getPais());
+        aeropuerto.setEstatus(dto.getEstatus());
+        return repository.save(aeropuerto);
+    }
+}
