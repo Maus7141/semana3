@@ -1,0 +1,29 @@
+package com.mauricio.vuelo.dto;
+
+import jakarta.validation.constraints.*;
+import java.time.LocalDateTime;
+
+public class VueloDTO {
+    @NotBlank
+    private String codigo;
+
+    @NotNull
+    private LocalDateTime fechaSalida;
+
+    @NotNull
+    private LocalDateTime fechaLlegada;
+
+    @NotBlank
+    private String origen;
+
+    @NotBlank
+    private String destino;
+
+    @NotNull
+    private Long avionId;
+
+    @NotNull
+    private Long aerolineaId;
+
+    // Getters y Setters
+}
