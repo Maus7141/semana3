@@ -1,0 +1,24 @@
+// dto/AerolineaDTO.java
+package com.mauricio.aerolinea.dto;
+
+import java.time.LocalDate;
+
+public class AerolineaDTO {
+	private Long id;
+	private String nombre;
+	private String iata;
+	private String estatus;
+	private String pais;
+	private LocalDate fechaFundacion;
+
+	// Constructor, getters y setters
+	public AerolineaDTO() {}
+
+	public AerolineaDTO(Long id, String nombre, String iata, String estatus, String pais, LocalDate fechaFundacion) {
+		this.id = id;
+		this.nombre = nombre;
+		this.iata = iata;
+		this.estatus = estatus;
+		this.pais = pais;
+		this.fechaFundacion = fechaFundacion;
+	}
