@@ -1,0 +1,18 @@
+package com.mauricio.vuelo.service.impl;
+
+import com.mauricio.vuelo.dto.AerolineaDTO;
+import com.mauricio.vuelo.feign.AerolineaFeignClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class VueloServiceImpl {
+
+    @Autowired
+    private AerolineaFeignClient aerolineaFeignClient;
+
+    public void ejemploDeUsoFeign() {
+        AerolineaDTO aerolinea = aerolineaFeignClient.obtenerAerolineaPorId(1L);
+        System.out.println("Nombre aerolínea: " + aerolinea.getNombre());
+    }
+}
