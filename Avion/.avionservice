@@ -1,0 +1,31 @@
+package com.mauricio.avion.service;
+
+import com.mauricio.avion.dto.AvionDTO;
+import com.mauricio.avion.models.Avion;
+import com.mauricio.avion.repository.AvionRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AvionService {
+
+    private final AvionRepository repository;
+
+    public AvionService(AvionRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Avion> listar() {
+        return repository.findAll();
+    }
+
+    public Avion guardar(AvionDTO dto) {
+        Avion avion = new Avion();
+        avion.setModelo(dto.getModelo());
+        avion.setMatricula(dto.getMatricula());
+        avion.setCapacidad(dto.getCapacidad());
+        avion.setEstado(dto.getEstado());
+        return repository.save(avion);
+    }
+}
