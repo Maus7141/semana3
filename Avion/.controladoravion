@@ -1,0 +1,32 @@
+package com.mauricio.avion.controller;
+
+import com.mauricio.avion.dto.AvionDTO;
+import com.mauricio.avion.models.Avion;
+import com.mauricio.avion.service.AvionService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/aviones")
+public class AvionController {
+
+    private final AvionService service;
+
+    public AvionController(AvionService service) {
+        this.service = service;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Avion>> listar() {
+        return ResponseEntity.ok(service.listar());
+    }
+
+    @PostMapping
+    public ResponseEntity<Avion> guardar(@Valid @RequestBody AvionDTO dto) {
+        return ResponseEntity.ok(service.guardar(dto));
+    }
+}
+
